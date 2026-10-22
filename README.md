@@ -15,10 +15,10 @@
     for 2026-03-15.
 
 w/o Harness + Train：
-[点击观看演示视频](./vedios/without%20-%20Trim.mp4)
+![Demo 1](./vedios/without%20-%20Trim.gif)
 
 w Harness + Train:
-[点击观看演示视频](./vedios/with%20-%20Trim.mp4)
+![Demo 2](./vedios/with%20-%20Trim.gif)
 
 ## 架构与个人实现
 

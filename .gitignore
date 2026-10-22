@@ -207,3 +207,5 @@ internal-*
 !.env.example
 site/
 task_results/
+
+/vedios/
