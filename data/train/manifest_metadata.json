@@ -1,0 +1,162 @@
+{
+  "compatibility_notes": [
+    {
+      "family_id": "2e1af59b617e7ba67f3e11d5",
+      "reason": "Map placement needs browser verification with the current text-only action space.",
+      "status": "action_space_compatibility_unverified",
+      "task_id": "web_2e1af59b617e7ba67f3e11d5"
+    },
+    {
+      "family_id": "9d08b9f54dfdebde45b21792",
+      "reason": "Map placement needs browser verification with the current text-only action space.",
+      "status": "action_space_compatibility_unverified",
+      "task_id": "web_9d08b9f54dfdebde45b21792"
+    },
+    {
+      "family_id": "fa5ea73e31b3e7f5af462394",
+      "reason": "Map placement needs browser verification with the current text-only action space.",
+      "status": "action_space_compatibility_unverified",
+      "task_id": "web_fa5ea73e31b3e7f5af462394"
+    },
+    {
+      "family_id": "ffaad02b87e97c52ea0c11a8",
+      "reason": "The RL environment forces apps.onlineshop.enable=False.",
+      "reference": "src/open_apps/agentic_rl/environment.py",
+      "status": "blocked_by_current_environment",
+      "task_id": "web_ffaad02b87e97c52ea0c11a8"
+    }
+  ],
+  "deduplication": {
+    "ignored_fields_recursive": [
+      "goal",
+      "goal_style",
+      "task_id",
+      "_convert_"
+    ],
+    "implementation": "open_apps.agentic_rl.tasks.family_id",
+    "key": "family_id",
+    "output_order": "family_id ascending",
+    "representative_selection": "First occurrence in the ordered source list; all fields except task_id are retained.",
+    "task_id": "web_<family_id>"
+  },
+  "duplicates_removed": 246,
+  "evaluation": {
+    "all_original_splits_included_in_training": true,
+    "held_out_manifest": null,
+    "note": "Original dev/test tasks are now training data and cannot serve as an independent evaluation set."
+  },
+  "manifest": "data/train/tasks.jsonl",
+  "manifest_sha256": "8aa3450094284a0ca559fca1a7dede51215f4db1c56a331ec0dfc036031fc40d",
+  "max_steps": {
+    "30": 248
+  },
+  "original_splits": {
+    "dev": {
+      "record_count": 14,
+      "unique_family_count": 14
+    },
+    "test": {
+      "record_count": 37,
+      "unique_family_count": 26
+    },
+    "train": {
+      "record_count": 443,
+      "unique_family_count": 208
+    }
+  },
+  "provenance": "data/train/task_sources.jsonl",
+  "purpose": "Online Agentic RL task manifest; not recorded rollouts or SFT demonstrations.",
+  "schema_version": 1,
+  "seeds": {
+    "0": 131,
+    "42": 117
+  },
+  "source_record_count": 494,
+  "sources": [
+    {
+      "original_split": "train",
+      "path": "data/agentic_rl/train.jsonl",
+      "record_count": 75,
+      "sha256": "8390e693146b14b5effbba8d5cd0d42f27a4db9a37d0186c0bde333406c02f44",
+      "unique_family_count": 75
+    },
+    {
+      "original_split": "dev",
+      "path": "data/agentic_rl/dev.jsonl",
+      "record_count": 5,
+      "sha256": "09629765c7c1b2b7b95998fb445b10d2e2d33ed4a08fe5f75fad0d50dc344865",
+      "unique_family_count": 5
+    },
+    {
+      "original_split": "test",
+      "path": "data/agentic_rl/test.jsonl",
+      "record_count": 10,
+      "sha256": "64546d4391347e67391f87c061d1639d0bb9e75d5827a719d6b2ce388502996d",
+      "unique_family_count": 10
+    },
+    {
+      "original_split": "train",
+      "path": "data/agentic_rl_long/train.jsonl",
+      "record_count": 23,
+      "sha256": "e9cd7e7888bf1666ee08302bccbd805b1e9a49b4e5ebc071ceba38f8a50c614a",
+      "unique_family_count": 23
+    },
+    {
+      "original_split": "dev",
+      "path": "data/agentic_rl_long/dev.jsonl",
+      "record_count": 2,
+      "sha256": "3748445984d813177ada87bbc6f37fe6b5e12a77827ca098153414f0d08b3f1f",
+      "unique_family_count": 2
+    },
+    {
+      "original_split": "test",
+      "path": "data/agentic_rl_long/test.jsonl",
+      "record_count": 5,
+      "sha256": "f0e3827361007047628b42e3d2bd7e46a956c8af47fc87578df0f4fc86b6a2c0",
+      "unique_family_count": 5
+    },
+    {
+      "original_split": "train",
+      "path": "outputs/agentic_rl/imported-task-check/train.jsonl",
+      "record_count": 345,
+      "sha256": "76fd0a1a57aaef49dad832217000af4373a6cff20080adf592dc44febf0dca02",
+      "unique_family_count": 111
+    },
+    {
+      "original_split": "dev",
+      "path": "outputs/agentic_rl/imported-task-check/dev.jsonl",
+      "record_count": 7,
+      "sha256": "acfe876db360b56e409318e11164e28e763cc797f7de29d154c1c8bb76bef2fb",
+      "unique_family_count": 7
+    },
+    {
+      "original_split": "test",
+      "path": "outputs/agentic_rl/imported-task-check/test.jsonl",
+      "record_count": 22,
+      "sha256": "ddf7b818d4bec4dd88db50d70fb9cf9e2b7d0dc0b8776751e0d175dd4b84fe60",
+      "unique_family_count": 13
+    }
+  ],
+  "task_count": 248,
+  "top_level_task_types": {
+    "AddEventTask": 30,
+    "AddToDoTask": 39,
+    "CompositeTask": 120,
+    "DeleteToDoTask": 1,
+    "MarkToDoDoneTask": 3,
+    "NavigateToAppTask": 14,
+    "RemoveEventTask": 3,
+    "RemoveLandmarkTask": 1,
+    "SavePlaceTask": 3,
+    "SendMessageTask": 34
+  },
+  "validation": {
+    "browser_rollouts": "not_performed",
+    "gpu_training": "not_performed",
+    "manifest_schema": "passed",
+    "source_family_coverage": "248/248",
+    "task_config_instantiation": "248/248",
+    "unique_task_families": "passed",
+    "unique_task_ids": "passed"
+  }
+}

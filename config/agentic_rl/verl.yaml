@@ -1,0 +1,131 @@
+# Online Web Agent RL with optional screenshots. Run from the repository root.
+# GPU environment: upstream veRL 0.6.1; see the separate setup instructions.
+backend: verl
+manifest: data/train/tasks_v4.jsonl
+# Held-out task/scene instances; test is data/test/tasks_v4.jsonl.
+eval_manifest: data/val/tasks_v4.jsonl
+output_dir: outputs/agentic_rl/qwen3-4b-lora
+seed: 17
+epochs: 5
+max_updates: 20
+group_size: 4
+tasks_per_update: 2
+# m task groups x n complete trajectories; CPU environment and GPU request
+# concurrency are separate. Excess episodes queue without sharing app state.
+rollout_scheduler:
+  max_concurrent_episodes: 8
+  inference_batch_size: 10
+  batch_wait_ms: 10
+  request_timeout_seconds: 600
+checkpoint_every: 5
+eval_every: 0
+resume_from: null
+chat_template_kwargs:
+  enable_thinking: false
+
+environment:
+  headless: true
+  timeout_seconds: 120
+  viewport: [1024, 640]
+
+harness:
+  max_attempts: 3
+  memory_max_tokens: 1024
+  recent_turn_replay_size: 3
+  # false: DOM/AXTree only; true: add ONE current screenshot to every RL call.
+  # Applies to rollout, old/reference log probabilities and the policy update.
+  use_screenshot: false
+
+reward:
+  success_weight: 1.0
+  progress_weight: 0.15
+  format_penalty: 0.05
+  invalid_penalty: 0.05
+  repeat_penalty: 0.05
+  execution_penalty: 0.05
+  incorrect_finish_penalty: 1.0
+  step_penalty: 0.03
+  error_cap: 4
+
+grpo:
+  normalize_std: false
+  epsilon: 0.000001
+
+# These override upstream verl/trainer/config/ppo_trainer.yaml.
+verl:
+  algorithm:
+    adv_estimator: grpo
+    use_kl_in_reward: false
+  actor_rollout_ref:
+    hybrid_engine: true
+    model:
+      path: Qwen/Qwen3-VL-4B-Instruct
+      trust_remote_code: false
+      lora_rank: 16
+      lora_alpha: 32
+      # Language-side LoRA only: do not adapt the vision tower/merger with
+      # all-linear (vLLM's LoRA rollout must match the actor's adapters).
+      target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+      enable_gradient_checkpointing: true
+      use_remove_padding: true
+      override_config:
+        attention_dropout: 0.0
+    actor:
+      strategy: fsdp
+      ppo_mini_batch_size: 2
+      ppo_micro_batch_size_per_gpu: 1
+      ppo_epochs: 1
+      use_dynamic_bsz: false
+      ulysses_sequence_parallel_size: 1
+      loss_agg_mode: token-mean
+      clip_ratio: 0.2
+      clip_ratio_low: 0.2
+      clip_ratio_high: 0.2
+      grad_clip: 1.0
+      entropy_coeff: 0.0
+      use_kl_loss: true
+      kl_loss_coef: 0.001
+      kl_loss_type: low_var_kl
+      entropy_checkpointing: true
+      optim:
+        lr: 0.000001
+        lr_warmup_steps_ratio: 0.0
+      fsdp_config:
+        param_offload: true
+        optimizer_offload: true
+        use_orig_params: true
+      checkpoint:
+        save_contents: [model, optimizer, extra]
+        load_contents: [model, optimizer, extra]
+    rollout:
+      name: vllm
+      mode: sync
+      n: 1
+      temperature: 1.0
+      top_p: 1.0
+      top_k: -1
+      prompt_length: 12288
+      response_length: 1024
+      max_model_len: 13312
+      max_num_batched_tokens: 16384
+      max_num_seqs: 2
+      tensor_model_parallel_size: 2
+      gpu_memory_utilization: 0.35
+      enforce_eager: true
+      free_cache_engine: true
+      calculate_log_probs: true
+      log_prob_micro_batch_size_per_gpu: 1
+      log_prob_use_dynamic_bsz: false
+      log_prob_max_token_len_per_gpu: 16384
+      multi_turn:
+        enable: false
+    ref:
+      log_prob_micro_batch_size_per_gpu: 1
+      log_prob_use_dynamic_bsz: false
+      fsdp_config:
+        param_offload: true
+  trainer:
+    nnodes: 1
+    n_gpus_per_node: 2
+    device: cuda
+    use_legacy_worker_impl: enable

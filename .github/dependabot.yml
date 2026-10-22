@@ -1,0 +1,12 @@
+# .github/dependabot.yml
+# facebookresearch/OpenApps
+# silence updates
+version: 2
+updates:
+  - package-ecosystem: "uv"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    ignore:
+      - dependency-name: "*"
+    open-pull-requests-limit: 0

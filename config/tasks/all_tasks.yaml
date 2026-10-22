@@ -1,0 +1,12 @@
+# Entry point for the task set. Composes the task files listed below into a
+# single flat {task_key: task_config} map.
+#
+# Consumed two ways, both of which honor this defaults list:
+#   - Hydra (config.yaml: `- tasks: all_tasks`) composes it natively.
+#   - open_apps.tasks._load_tasks_cfg() resolves it for the direct/MCP path.
+#
+# Task keys must stay unique across the listed files (last file wins on a clash).
+defaults:
+  - original_tasks
+  - user_goal_variations
+  - _self_

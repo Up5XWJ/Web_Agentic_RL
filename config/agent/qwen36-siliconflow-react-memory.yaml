@@ -1,0 +1,67 @@
+# Qwen3.6 SiliconFlow agent with structured ReAct, overwrite memory, and
+# BrowserGym BID-first actions. The benchmark's hidden CompositeTask subtasks
+# are never exposed to the model.
+defaults:
+  - qwen36-siliconflow
+  - _self_
+
+_target_: open_apps.react_agent.agent.AgentArgs
+model_pretty_name: Qwen3.6-35B-A3B-SF-ReAct-Memory
+
+# Keep BrowserGym's DOM, AXTree, and screenshot as three separate, equally
+# available observation views. They are not merged and screenshot is not a fallback.
+use_html: true
+use_axtree: true
+use_screenshot: true
+filter_visible_elements_only: true
+extract_visible_tag: true
+extract_clickable_tag: true
+extract_coords: false
+save_som: false
+
+# Overwrite memory replaces unbounded Thought/Action history.
+use_history: false
+use_action_history: false
+use_think_history: false
+use_memory: true
+use_thinking: false
+use_concrete_example: false
+use_abstract_example: false
+
+custom_actions:
+  - click
+  - fill
+  - focus
+  - select_option
+  - keyboard_press
+  - keyboard_type
+  - mouse_click
+  - mouse_dblclick
+  - scroll
+  - noop
+  - report_infeasible
+
+memory_max_tokens: 1024
+memory_max_subgoals: 12
+memory_max_verified_facts: 20
+memory_max_failures: 3
+memory_max_uncertainties: 5
+
+coordinate_space: 1000
+max_same_action_retries: 2
+# Number of completed turns replayed to the model on every step. This bounded
+# short-term history complements overwrite memory without restoring an
+# unbounded Thought/Action transcript.
+recent_turn_replay_size: 3
+# Maximum number of compact above/below interactive hints added to each prompt.
+# Detailed DOM/AXTree remain visible-viewport-only to control token cost.
+offscreen_element_limit: 20
+allow_unfocused_keyboard_type: false
+react_max_retry: 3
+react_system_prompt: null
+
+temperature: 0.0
+max_tokens: 2048
+max_tokens_param: max_tokens
+request_kwargs:
+  enable_thinking: false

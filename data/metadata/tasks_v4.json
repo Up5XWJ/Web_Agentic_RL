@@ -1,0 +1,521 @@
+{
+  "background_policy": "0/1/2-4 selected YAMLs; at most one per app. Resolve + keys and interpolations offline; sample bounded background records.",
+  "base_compatibility_note": "Existing disabled-shop and unvalidated map-save tasks remain inherited from v3; no automatic filtering.",
+  "base_version": "v3",
+  "checks": {
+    "broken_reference_checks": 807,
+    "browser_execution": "not_performed",
+    "counterfactual_answer_changes": 1343,
+    "gpu_training": "not_performed",
+    "model_execution": "not_performed",
+    "positive_and_negative_final_states": "passed",
+    "retained_base_records_and_splits": "passed",
+    "runtime_hydra_compositions": 600,
+    "schema_and_constructors": "passed",
+    "source_removal_checks": 1100,
+    "split_family_overlap": 0,
+    "split_parent_or_scene_overlap": 0,
+    "tokenizer_context_fit": "not_measured",
+    "unique_sources": "passed"
+  },
+  "complexity_counts": {
+    "default": 120,
+    "multi_variants": 120,
+    "single_distraction": 120,
+    "single_language": 120,
+    "two_variants": 120
+  },
+  "dependency_only_files": {
+    "test": {
+      "path": "test/tasks_dependency_v4.jsonl",
+      "sha256": "e20025abb4558ba02f44cab83aaa281377aa1b6ba1afd0ac2ff23a7998ba063d"
+    },
+    "train": {
+      "path": "train/tasks_dependency_v4.jsonl",
+      "sha256": "6834b5ca9fa795b119ce7e94089156376dd52768af890ed4f09229c50ba7960d"
+    },
+    "val": {
+      "path": "val/tasks_dependency_v4.jsonl",
+      "sha256": "8a0b3d1a36dab01d6539dd1adef21817005fb20bd6e1815ecff8d842f3dd9f72"
+    }
+  },
+  "environment_seed": 42,
+  "examples": {
+    "path": "metadata/tasks_v4_examples.json",
+    "sha256": "0b19320357656d2c908861d4dc96714cb5520dfe294a9ae8e91613124c3731f1"
+  },
+  "excluded_apps": {
+    "code_editor": "not a task source or destination",
+    "onlineshop": "disabled in the RL environment"
+  },
+  "files": {
+    "test": {
+      "path": "test/tasks_v4.jsonl",
+      "sha256": "93a55f0268ae0c39556d1a7046f389f5cb4fba813ec9ad7611f23a1fee00b5ed"
+    },
+    "train": {
+      "path": "train/tasks_v4.jsonl",
+      "sha256": "83ac7245842f8646e2aff5dfd86e5eb9c79fb9c50678da70a2829cffd6f4610c"
+    },
+    "val": {
+      "path": "val/tasks_v4.jsonl",
+      "sha256": "a27f064c756a5ef3d5dde1cae1401f3c3bb98b8abae096ed2cbf0e762796c755"
+    }
+  },
+  "generalization_claim": "Held-out parameter/scene instances of known templates and variant families; not unseen-template generalization.",
+  "generated_tasks": 600,
+  "generation_seed": 20261010,
+  "generator_sources": {
+    "config/apps/calendar/appearance/black_and_white.yaml": "35c37747ac10eeab02999415db2cb870b41410c73f59a8b5a1641ceb9c06f120",
+    "config/apps/calendar/appearance/challenging_font.yaml": "883925cc2385830fba64391eb74c66aac515df229ab41bc6d406950177c3d849",
+    "config/apps/calendar/appearance/dark_theme.yaml": "5b8e7fc003cef8deb2db33d19a799bc8c3620a2c8a64d723c30a0f3d1c737967",
+    "config/apps/calendar/appearance/default.yaml": "c2032f709c4d1785d4a2b71156c1d3d3700fce3bbdecdbf297e0bc71e18ef848",
+    "config/apps/calendar/content/adversarial_descriptions.yaml": "35c340ff2e03a418664297fe42e149a29c138b28104e4de7da0a1a841947263c",
+    "config/apps/calendar/content/default.yaml": "d2e285138cb2a749082a3fc02e1d8f5807e74ee97859973863bbb5be5109d74d",
+    "config/apps/calendar/content/german.yaml": "66050bc395f3535456fef0718300b6d805d95c239966a758b04354cf336ba01d",
+    "config/apps/calendar/content/long_descriptions.yaml": "a0ca4d717951e600fe3e0dfe20271d4677965cc5135013e31c5fe20d7bf6a06d",
+    "config/apps/calendar/content/mandarin.yaml": "8a393f0cb0ebb620b47c48f4a44f9e6ba676940b5ac80f8290ba7c98b6e12e1e",
+    "config/apps/calendar/content/misleading_descriptions.yaml": "5a4bad6b2cef60ad20ae4b1e57185b2899a075a94ec84f7e8ba94858cf4e1379",
+    "config/apps/calendar/default.yaml": "4f1d053d86889d1135263af0d0866852a3ef2f5fdc05228c3e9a6d796c731e5e",
+    "config/apps/code_editor/appearance/black_and_white.yaml": "8183285e7ea40392c8d78478a197808d88a98e0014ebe39e1c6324baa557f6c8",
+    "config/apps/code_editor/appearance/challenging_font.yaml": "2b5067e56a0ab7a8c2f63ff2c5eb3f998169d04db0addc336ea9b596a3166891",
+    "config/apps/code_editor/appearance/colorblind_access.yaml": "0e9d0615ee77d0d740d6862ee56b87472abeb0398577a4bf7fd77f9d2b13ebfc",
+    "config/apps/code_editor/appearance/dark_theme.yaml": "4369075d1fb5ffecc246fe83b3af9204a3cf81a65f066bcb41f690510946ac24",
+    "config/apps/code_editor/appearance/default.yaml": "96c412529bf9ea104100ece8d6efa204a7fddabf76c440de127a1ac8ee8175d3",
+    "config/apps/code_editor/content/adversarial_descriptions.yaml": "6a1957bbfbd76db691be2eb2809a74b222938ec730a251b22f5aff41f13c81ba",
+    "config/apps/code_editor/content/default.yaml": "c2142a67c6db90e014564740e346d7d89064612365125d7aa105f16320dc89e7",
+    "config/apps/code_editor/content/german.yaml": "d0640a76d1e46adb35a5ed141f42df8764bbcb0d266c6be5132c78fb36f6d864",
+    "config/apps/code_editor/content/long_descriptions.yaml": "1aeda4b087584d4ef6bc3ce387056f8e5149d8a2d02fe0af5aec99288a4ee3d1",
+    "config/apps/code_editor/content/mandarin.yaml": "06baec4f1bf3b78924c00326bd3e16584c7098d83d6000a6964b1798c5a9212e",
+    "config/apps/code_editor/content/misleading_descriptions.yaml": "f6d9bf2b22b4d7df0953cd6600880a673a7a430a796270dc2ecc654277af2e18",
+    "config/apps/code_editor/default.yaml": "b34d1e8eeb49a6806716c72a76abb1ef1397f6b3746d74ad65104e5422084399",
+    "config/apps/maps/appearance/black_and_white.yaml": "ffdf5c14e678c90675a12541198226b589989a4013d1cf02050ac05d159b4b62",
+    "config/apps/maps/appearance/challenging_font.yaml": "526551c1cc5f756b61506578ee405df6f2ce37b4348131dd2c5c836b4a0b0193",
+    "config/apps/maps/appearance/dark_theme.yaml": "c5d82e4a86af4107062990d355c323528cb674fffb9278e5c7b18c61e46d5303",
+    "config/apps/maps/appearance/default.yaml": "e726473d77f62e750b51368c79ba3df31cd285d5b954500438d47a851abc9728",
+    "config/apps/maps/content/adversarial_descriptions.yaml": "5670fe5d64b53f11fb5bdd8750cfb9782e68bc5fd508c0937fbf46f8bedb2c75",
+    "config/apps/maps/content/default.yaml": "a00a73fff309173de3536390234558a891f8d8df5f2a4cfe81dd84ac330a4fb7",
+    "config/apps/maps/content/german.yaml": "25b4a5ca68f5e8bb2fed21b15bfd7c1c47abdddca3ee20526c8dae0343caa1df",
+    "config/apps/maps/content/long_descriptions.yaml": "d49d6d6b86004c4319d267a4eb40028f7f05105b751f76c7a0ea55267f3b6307",
+    "config/apps/maps/content/mandarin.yaml": "54df27cbac7b25ed587289c92dda6d3520f2044e8b6ecd5e177d94bfdf096d31",
+    "config/apps/maps/content/misleading_descriptions.yaml": "cecce97e495e0016acff5247c6ea3dd5c0a9d047ac58aff7b17fbd02032acac4",
+    "config/apps/maps/default.yaml": "c966307f19e44f9b2da58bf41adc4b333954e6c7bd6c11f13ce2798b1d328af5",
+    "config/apps/messenger/appearance/black_and_white.yaml": "45c19753683883d2662e0bd3a50fe629e76945b34fd7a62bb3aa322550bdd3ae",
+    "config/apps/messenger/appearance/challenging_font.yaml": "d2683adc6a6f77a77bf08825edbac05f9e43f263c08e79f496b1ca4246c32101",
+    "config/apps/messenger/appearance/dark_theme.yaml": "adb01adb7941abf3169d33eaa57941bdbb3fd0ef4096ce93facf7770881e6ddf",
+    "config/apps/messenger/appearance/default.yaml": "9cab62c56c3e14a8a8d06e7f810459a5f76f60dc0378ad3053137fc5cbdf2f40",
+    "config/apps/messenger/content/adversarial_descriptions.yaml": "1df40332623fadbd908c778c7ce6a79a39eb131884706a0bf724fdec5333f22d",
+    "config/apps/messenger/content/default.yaml": "ec6f67dec0ffa51052935dedea69696ab974c685a5fbfb6e1cf5c268703d3694",
+    "config/apps/messenger/content/german.yaml": "9e728f5d0031962a97f3ce085deff3314d37f2e35b7d59635c40286f31f88136",
+    "config/apps/messenger/content/long_descriptions.yaml": "6ba990dda9104d7e72e4926a669b745259a56edf1bb8edaa94616f5da22ef28b",
+    "config/apps/messenger/content/mandarin.yaml": "380c6e4e8815f02ece7c6371ef6779292da8b34d455c41bcd1c99e588609a9fd",
+    "config/apps/messenger/content/misleading_descriptions.yaml": "fb9a688314bf959c392d2bc83d7b7826c6df8325205f7a99241312cdf5b6b113",
+    "config/apps/messenger/default.yaml": "f7d9af415900b1715bae129a55e3ff6b142b8b4e2326a522817a7bf8e9aeb8a4",
+    "config/apps/onlineshop/appearance/black_and_white.yaml": "23784667b91efecd4f571128e1d9a828e23e816fdbf1417af79aec8d82ca649d",
+    "config/apps/onlineshop/appearance/challenging_font.yaml": "91d7f937387b47bb21b8351eb169668461708d8b3badf6adf4b0a4125be94030",
+    "config/apps/onlineshop/appearance/dark_theme.yaml": "f9d6176f59532b3283387d975b71bbad231995e294e6335bc4afff310ade1a2d",
+    "config/apps/onlineshop/appearance/default.yaml": "7b267af3a82f549d963cd4be94733a85723b77783f00fdac0f536d555918971c",
+    "config/apps/onlineshop/content/adversarial_descriptions.yaml": "24a25bdf2097958122523c194190ab1990ace73536b318ed4a03bfea090784ae",
+    "config/apps/onlineshop/content/default.yaml": "f7cb42db476a4dece562e39a4dabe1687fb8ba505a29f3ef8ede6260b0056af0",
+    "config/apps/onlineshop/content/german.yaml": "9abaaf6fe606140820ec81d94c47e5a3d0c3ec1d64ff9e41652518a3441bb02f",
+    "config/apps/onlineshop/content/long_descriptions.yaml": "04a4e833c1b737fa79e13a2aa9f2b88bb4e40a500d96bce82187553233ab80a8",
+    "config/apps/onlineshop/content/misleading_descriptions.yaml": "ef9c1453188d9861c660467d292bc88cf9312aa869b0eb6c3dc9328f181c07ec",
+    "config/apps/onlineshop/default.yaml": "98a61452d7097d9962a0e06a1a1f076b8785088b7dd7e6b52f8d092236dc3388",
+    "config/apps/pop_ups/adversarial_descriptions.yaml": "d9a9f42d40bcac0a9571738ccce6703467388401c78d615df67e8a219ebbed72",
+    "config/apps/pop_ups/default.yaml": "a6d13a76e30acdbbbec6a79fa5adada8b1354a98901ba65a4f79362c0dbbb8f2",
+    "config/apps/pop_ups/german.yaml": "b8aefedda431ce2696387a9f06a88e77546733ce8ce58fa362f6370a648ef63c",
+    "config/apps/pop_ups/long_descriptions.yaml": "6848eb38e03e93f69a8206f657ce22791665bec0227b908faddd159d92d5e4f5",
+    "config/apps/pop_ups/mandarin.yaml": "238047552a04228db3376bbc533e89fa5531a17a235fcaa96ef04c9dcc5b4435",
+    "config/apps/pop_ups/misleading_descriptions.yaml": "9a1e8f0e53ca9b11457a8fe7a3d3f7d637eba6dcb2a1fd21feeb0ebbf5d38295",
+    "config/apps/pop_ups/no_visual.yaml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "config/apps/start_page/appearance/black_and_white.yaml": "3b48b42fa4122ff185c05d65a84d4a811eb06b42f70ccfe21fd379d2a80eab43",
+    "config/apps/start_page/appearance/broken_logos.yaml": "c7cc091cff347b39f87a18ae2b19e6454e6177b84bbf3b6f3324905cdb5b623b",
+    "config/apps/start_page/appearance/challenging_font.yaml": "769444412a0730b3c1200f5532c22736b6d393308bdbad96e3c331303ff0d6a2",
+    "config/apps/start_page/appearance/clickable_logos.yaml": "cda155d56de17676d757063bbf25d1d0de0ff346a85b73602cef4d8e1186e136",
+    "config/apps/start_page/appearance/dark_theme.yaml": "af6f85ee22ffbb7eb7bdc6db38cd711f97bb0e9fa3c662827a562d9565b21ac2",
+    "config/apps/start_page/appearance/default.yaml": "472ce872eb4c76dfc27c69280272c52e48b81338f037e77f0ba0ecf005dbe795",
+    "config/apps/start_page/content/adversarial_descriptions.yaml": "ccabe0deb7b156c54ce807ebd79cb9257147bae6acf97889d73cd5fba811ce5b",
+    "config/apps/start_page/content/default.yaml": "6854c0e34a5ce1039a65766c97fab1e1637298e430166b5d2811957e97de6034",
+    "config/apps/start_page/content/german.yaml": "1b1a6c3cadf55b09af0b142d0e715c03314f1540d54c16bb4d8e2d3561d9a462",
+    "config/apps/start_page/content/long_descriptions.yaml": "581c0b8098aec50d5f25e05c4daa6847e7999db05716243dc248b4752985e08a",
+    "config/apps/start_page/content/mandarin.yaml": "55e5c8a3079df773ba4af8974897c1d550b1bee129193f16932773a9f4362fc6",
+    "config/apps/start_page/content/misleading_descriptions.yaml": "b644fe0e4a8eec1176973c5fb5926fbd0c38b3e3d358bba29b40910542c40431",
+    "config/apps/start_page/default.yaml": "0aefae53a6ca971e5b7fff1ad226845702d5c1300478c73d65515d5b7b483aed",
+    "config/apps/todo/appearance/black_and_white.yaml": "0b2c2ce0298fd2abdf62d57223e5e55d49b517026172a6ad47de490e35478cc2",
+    "config/apps/todo/appearance/challenging_font.yaml": "5617dfca669a8c2980cf53bd3407a7ae32d1761f6988bc9315d981abfc832d82",
+    "config/apps/todo/appearance/dark_theme.yaml": "4effa5dc6659b2fbe68eddef9e2e4675358be8bf70bde9c705a75ec779d9e7bf",
+    "config/apps/todo/appearance/default.yaml": "c95a129efde3ce1a9d3f45669eb1995fdab879cc78730081605c6446af0932af",
+    "config/apps/todo/appearance/kanban_board.yaml": "73e470252d893bc3ad4cacd75a91e70e536d02701d33acbfae0aad76e93a489b",
+    "config/apps/todo/content/adversarial_descriptions.yaml": "2e8165d0016dc07a0466aff3b8be2e3fc210020456f740a593bcf203c4acd669",
+    "config/apps/todo/content/default.yaml": "53083baa9253ae5d296a72fa06e9247509a2839e305846461cc9e78aba96eaa8",
+    "config/apps/todo/content/german.yaml": "7de31b91d26fb93eba55ffd6b67d606d9615945495e30dd18b2d334c159f5f94",
+    "config/apps/todo/content/long_descriptions.yaml": "9faef8f121ce23887c469d3fff9739ba0f6e42c6021d61d719dda5f4fa3260ea",
+    "config/apps/todo/content/mandarin.yaml": "d9a57cb858b860da941ccdf4f37ea9f80f31b4b3080c3367c8db399b7a2ffa02",
+    "config/apps/todo/content/misleading_descriptions.yaml": "b96e7615e77f757b7371ce0557f6e5c7bb3a440d83b2d9415780dbd4a87685ef",
+    "config/apps/todo/default.yaml": "d51e7f7d84adb61d9c8816aca601677f43ae10eac3cf70804fe09e76b6bc7bc1",
+    "config/config.yaml": "dc862cbce06e21bb857447cf0a719eb25d9cf5449afef6be8954f93da460b364",
+    "scripts/expand_dependent_tasks.py": "702183f917f77179d3b7fc3a54e09296110450f2b74676b3abecde0c50ebfe2d",
+    "src/open_apps/agentic_rl/dependent_tasks.py": "fb23636266c96df1f281daf6f9741f71828a2ea44bd1063f147aca4fadc45819",
+    "src/open_apps/agentic_rl/task_scenes.py": "fcd99446facdb30d6dc31833e8f078346c33e41ee8c50b3979a2be20127e87a1",
+    "src/open_apps/agentic_rl/tasks.py": "719b8c5dcae30ce486eca040ff60ccdfd35edbf2373de9e98ddc3e20061d6b5b",
+    "src/open_apps/tasks/tasks.py": "2b9d2dafce4970314484ac5a3e53a4f47cb14bcaa7591588dfdd45612f0a5629"
+  },
+  "language_scope": "English task instructions and authoritative case notes; YAMLs supply German/Chinese UI and background content.",
+  "max_steps_rule": "30 + 15 * read_count + 5 * complexity_tier; includes finish; not browser-validated",
+  "new_split_counts": {
+    "test": 60,
+    "train": 480,
+    "val": 60
+  },
+  "registry": {
+    "path": "metadata/tasks_v4_registry.jsonl",
+    "sha256": "fd4c9082f8bcd1bfb807fdb7bc0f5b351ed74a05a891a1a2a9ff8e4ff82d76d6"
+  },
+  "sources": {
+    "test": {
+      "path": "test/tasks_v3.jsonl",
+      "sha256": "936825247d1c89b700b2876c07ba26c03c135ab6bf063c5726374723691a08aa",
+      "tasks": 118
+    },
+    "train": {
+      "path": "train/tasks_v3.jsonl",
+      "sha256": "e747a9eaf4caab61ca4cc260bd86e28b7d452fb9ce2a9c107da66270ea799964",
+      "tasks": 1206
+    },
+    "val": {
+      "path": "val/tasks_v3.jsonl",
+      "sha256": "a84d366d98e57bbb3531b8f20296db4c59f5fe6446c311b823dc5178704330d0",
+      "tasks": 124
+    }
+  },
+  "split_counts": {
+    "test": 178,
+    "train": 1686,
+    "val": 184
+  },
+  "split_policy": "Preserve v3 assignments; group unique source scenes/parents, stratify each template and complexity tier 8/1/1.",
+  "split_seed": 17,
+  "split_strata": {
+    "test": {
+      "calendar_messenger_to_maps": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "calendar_messenger_to_todo": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "calendar_to_messenger": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "calendar_to_todo": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "maps_calendar_to_messenger": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "messenger_calendar_maps_to_todo": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "messenger_calendar_to_todo": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "messenger_maps_to_calendar": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "messenger_to_calendar": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "messenger_to_maps": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "todo_messenger_calendar_to_maps": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "todo_messenger_to_calendar": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      }
+    },
+    "train": {
+      "calendar_messenger_to_maps": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "calendar_messenger_to_todo": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "calendar_to_messenger": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "calendar_to_todo": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "maps_calendar_to_messenger": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "messenger_calendar_maps_to_todo": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "messenger_calendar_to_todo": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "messenger_maps_to_calendar": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "messenger_to_calendar": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "messenger_to_maps": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "todo_messenger_calendar_to_maps": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      },
+      "todo_messenger_to_calendar": {
+        "default": 8,
+        "multi_variants": 8,
+        "single_distraction": 8,
+        "single_language": 8,
+        "two_variants": 8
+      }
+    },
+    "val": {
+      "calendar_messenger_to_maps": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "calendar_messenger_to_todo": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "calendar_to_messenger": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "calendar_to_todo": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "maps_calendar_to_messenger": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "messenger_calendar_maps_to_todo": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "messenger_calendar_to_todo": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "messenger_maps_to_calendar": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "messenger_to_calendar": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "messenger_to_maps": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "todo_messenger_calendar_to_maps": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      },
+      "todo_messenger_to_calendar": {
+        "default": 1,
+        "multi_variants": 1,
+        "single_distraction": 1,
+        "single_language": 1,
+        "two_variants": 1
+      }
+    }
+  },
+  "supported_apps": [
+    "todo",
+    "calendar",
+    "messenger",
+    "maps",
+    "start_page",
+    "pop_ups"
+  ],
+  "template_counts": {
+    "calendar_messenger_to_maps": 50,
+    "calendar_messenger_to_todo": 50,
+    "calendar_to_messenger": 50,
+    "calendar_to_todo": 50,
+    "maps_calendar_to_messenger": 50,
+    "messenger_calendar_maps_to_todo": 50,
+    "messenger_calendar_to_todo": 50,
+    "messenger_maps_to_calendar": 50,
+    "messenger_to_calendar": 50,
+    "messenger_to_maps": 50,
+    "todo_messenger_calendar_to_maps": 50,
+    "todo_messenger_to_calendar": 50
+  },
+  "variant_count_distribution": {
+    "0": 120,
+    "1": 240,
+    "2": 120,
+    "3": 64,
+    "4": 56
+  },
+  "variant_sources": {
+    "config/apps/calendar/content/adversarial_descriptions.yaml": 46,
+    "config/apps/calendar/content/german.yaml": 49,
+    "config/apps/calendar/content/long_descriptions.yaml": 45,
+    "config/apps/calendar/content/mandarin.yaml": 47,
+    "config/apps/calendar/content/misleading_descriptions.yaml": 32,
+    "config/apps/maps/content/adversarial_descriptions.yaml": 22,
+    "config/apps/maps/content/german.yaml": 26,
+    "config/apps/maps/content/long_descriptions.yaml": 25,
+    "config/apps/maps/content/mandarin.yaml": 24,
+    "config/apps/maps/content/misleading_descriptions.yaml": 27,
+    "config/apps/messenger/content/adversarial_descriptions.yaml": 37,
+    "config/apps/messenger/content/german.yaml": 40,
+    "config/apps/messenger/content/long_descriptions.yaml": 51,
+    "config/apps/messenger/content/mandarin.yaml": 51,
+    "config/apps/messenger/content/misleading_descriptions.yaml": 37,
+    "config/apps/pop_ups/adversarial_descriptions.yaml": 28,
+    "config/apps/pop_ups/german.yaml": 21,
+    "config/apps/pop_ups/long_descriptions.yaml": 27,
+    "config/apps/pop_ups/mandarin.yaml": 25,
+    "config/apps/pop_ups/misleading_descriptions.yaml": 22,
+    "config/apps/start_page/content/adversarial_descriptions.yaml": 20,
+    "config/apps/start_page/content/german.yaml": 29,
+    "config/apps/start_page/content/long_descriptions.yaml": 21,
+    "config/apps/start_page/content/mandarin.yaml": 15,
+    "config/apps/start_page/content/misleading_descriptions.yaml": 22,
+    "config/apps/todo/content/adversarial_descriptions.yaml": 22,
+    "config/apps/todo/content/german.yaml": 19,
+    "config/apps/todo/content/long_descriptions.yaml": 23,
+    "config/apps/todo/content/mandarin.yaml": 27,
+    "config/apps/todo/content/misleading_descriptions.yaml": 16
+  },
+  "verification_scope": "Existing final-state validators; source-reading order is not graded. Answers are frozen from initial facts.",
+  "version": "v4"
+}

@@ -1,0 +1,42 @@
+# Direct dependencies for Linux x86_64 / CPython 3.12 / NVIDIA CUDA 12.8.
+# Compile this file into agentic-rl-gpu.txt; install the compiled file.
+# GPU/FlashAttention runtime validation still requires the target GPU host.
+-r agentic-rl-runtime.txt
+
+# Exact veRL 0.6.1 source revision required by verl_backend.py.
+verl @ git+https://github.com/volcengine/verl.git@d62da4950573d7a4b7ef2362337952e7ab59e78d
+vllm==0.11.0
+torch==2.8.0
+torchaudio==2.8.0
+torchvision==0.23.0
+ray[default,cgraph]==2.48.0
+# Qwen3-VL is not registered in 4.55.x.
+transformers==4.57.1
+peft==0.17.1
+tensordict==0.10.0
+torchdata==0.11.0
+accelerate==1.10.1
+huggingface-hub==0.34.4
+tokenizers==0.22.1
+
+# Keep the Arrow/datasets/filesystem stack compatible with each other.
+# datasets 3.6 uses ExtensionType and constrains fsspec to <=2025.3.0.
+# veRL requires numpy<2 and pyarrow>=19.
+numpy==1.26.4
+pandas==2.2.3
+datasets==3.6.0
+pyarrow==20.0.0
+fsspec[http]==2025.3.0
+
+# Preserve the Harness/AgentLab APIs, while satisfying vLLM's Pydantic minimum.
+gymnasium==1.1.1
+gradio==5.41.0
+pydantic==2.11.7
+openai==1.102.0
+litellm==1.76.0
+
+# FlashAttention is installed separately AFTER torch, without build isolation.
+# vLLM 0.11 requires setuptools<80 on Python 3.12.
+setuptools==79.0.1
+wheel==0.45.1
+ninja>=1.11

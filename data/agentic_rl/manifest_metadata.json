@@ -1,0 +1,14 @@
+{
+  "seed": 42,
+  "max_steps": 30,
+  "sources": [],
+  "curriculum_count": 90,
+  "max_subgoals": 1,
+  "split_counts": {
+    "train": 75,
+    "dev": 5,
+    "test": 10
+  },
+  "split_policy": "grouped_by_underlying_task_instance_not_goal_wording",
+  "generalization_claim": "parameter-instance split; not an unseen-template benchmark"
+}

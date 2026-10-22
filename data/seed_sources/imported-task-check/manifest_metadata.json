@@ -1,0 +1,17 @@
+{
+  "seed": 0,
+  "max_steps": 30,
+  "sources": [
+    "/home/xwj/interns/OpenApps_agentic_rl/config/tasks/all_tasks.yaml",
+    "/home/xwj/interns/OpenApps_agentic_rl/config/tasks/longer_horizon.yaml"
+  ],
+  "curriculum_count": 0,
+  "max_subgoals": 1,
+  "split_counts": {
+    "train": 345,
+    "dev": 7,
+    "test": 22
+  },
+  "split_policy": "grouped_by_underlying_task_instance_not_goal_wording",
+  "generalization_claim": "parameter-instance split; not an unseen-template benchmark"
+}

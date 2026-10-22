@@ -1,0 +1,96 @@
+{
+  "base_version": "v2",
+  "checks": {
+    "browser_execution": "not_performed",
+    "model_execution": "not_performed",
+    "schema_and_constructors": "passed",
+    "split_family_overlap": 0
+  },
+  "environment_seed": 42,
+  "files": {
+    "test": {
+      "path": "test/tasks_v3.jsonl",
+      "sha256": "936825247d1c89b700b2876c07ba26c03c135ab6bf063c5726374723691a08aa"
+    },
+    "train": {
+      "path": "train/tasks_v3.jsonl",
+      "sha256": "e747a9eaf4caab61ca4cc260bd86e28b7d452fb9ce2a9c107da66270ea799964"
+    },
+    "val": {
+      "path": "val/tasks_v3.jsonl",
+      "sha256": "a84d366d98e57bbb3531b8f20296db4c59f5fe6446c311b823dc5178704330d0"
+    }
+  },
+  "generalization_claim": "Parameter-instance split; no held-out templates, places or compositions.",
+  "generated_kind_counts": {
+    "map_cross_app": 173,
+    "map_navigation": 3,
+    "remove_saved_places": 24
+  },
+  "generated_subgoal_counts": {
+    "1": 7,
+    "2": 68,
+    "3": 68,
+    "4": 57
+  },
+  "generated_tasks": 200,
+  "generation_seed": 20261008,
+  "generator_sources": {
+    "config/apps/maps/content/default.yaml": "a00a73fff309173de3536390234558a891f8d8df5f2a4cfe81dd84ac330a4fb7",
+    "scripts/expand_agentic_rl_tasks.py": "98e3d6d49fa1bd6ab2ddb6c864696653483f7cbeef9a3bc422aa6f42627591d0",
+    "scripts/expand_map_tasks.py": "19328569e9f8ab0c7adf49ab7111b05b14423f3c1763ef89513e9646a4abfca0",
+    "src/open_apps/agentic_rl/tasks.py": "719b8c5dcae30ce486eca040ff60ccdfd35edbf2373de9e98ddc3e20061d6b5b"
+  },
+  "map_scope": {
+    "base_compatibility_issues": "Retained unchanged from the base dataset.",
+    "operations": [
+      "navigation",
+      "remove_saved_place"
+    ],
+    "route_planning": "not_generated",
+    "saved_places": [
+      "Brooklyn Bridge",
+      "Central Park",
+      "Empire State Building",
+      "Statue of Liberty",
+      "Times Square"
+    ],
+    "search_and_save": "not_generated"
+  },
+  "max_steps_rule": "15 + 15 * subgoal_count",
+  "new_split_counts": {
+    "test": 18,
+    "train": 154,
+    "val": 28
+  },
+  "registry": {
+    "path": "metadata/tasks_v3_registry.jsonl",
+    "sha256": "adfa690e05555a29983cddfeae08f2e6bbd2bb13de92615af0d7160ce27bbf27"
+  },
+  "sources": {
+    "test": {
+      "path": "test/tasks_v2.jsonl",
+      "sha256": "1e7f31c0d5c4f865f10ad64d33a086854b56dc9223e0a2ce8047bc7b40b585c9",
+      "tasks": 100
+    },
+    "train": {
+      "path": "train/tasks_v2.jsonl",
+      "sha256": "73e65d8f95702d2a0ea668cbc55628a6f264672bc472879410881c220ab29dbf",
+      "tasks": 1052
+    },
+    "val": {
+      "path": "val/tasks_v2.jsonl",
+      "sha256": "3e3354ffa8343109b929a5b87770956df6805acf0aa7c88a32185d0b7e5549bb",
+      "tasks": 96
+    }
+  },
+  "split_counts": {
+    "test": 118,
+    "train": 1206,
+    "val": 124
+  },
+  "split_policy": "Preserve all base assignments; new families use stable 80/10/10 hashing.",
+  "split_seed": 17,
+  "subtask_dependencies": "Generated cross-app subtasks are independent final-state requirements.",
+  "version": "v3"
+}

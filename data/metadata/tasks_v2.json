@@ -1,0 +1,83 @@
+{
+  "base_compatibility_note": "Base tasks are retained unchanged; existing environment incompatibilities are not repaired by expansion.",
+  "base_manifest": "data/train/tasks.jsonl",
+  "base_manifest_sha256": "8aa3450094284a0ca559fca1a7dede51215f4db1c56a331ec0dfc036031fc40d",
+  "base_tasks_retained_in_train": 248,
+  "checks": {
+    "browser_execution": "not_performed",
+    "gpu_training": "not_performed",
+    "model_execution": "not_performed",
+    "schema_and_constructors": "passed",
+    "split_family_overlap": 0,
+    "unique_ids_and_families": "passed"
+  },
+  "environment_seed": 42,
+  "files": {
+    "test": {
+      "path": "test/tasks_v2.jsonl",
+      "sha256": "1e7f31c0d5c4f865f10ad64d33a086854b56dc9223e0a2ce8047bc7b40b585c9"
+    },
+    "train": {
+      "path": "train/tasks_v2.jsonl",
+      "sha256": "73e65d8f95702d2a0ea668cbc55628a6f264672bc472879410881c220ab29dbf"
+    },
+    "val": {
+      "path": "val/tasks_v2.jsonl",
+      "sha256": "3e3354ffa8343109b929a5b87770956df6805acf0aa7c88a32185d0b7e5549bb"
+    }
+  },
+  "generalization_claim": "Parameter-instance split only; no held-out templates or compositions.",
+  "generated_subgoal_counts": {
+    "1": 334,
+    "2": 333,
+    "3": 333
+  },
+  "generated_tasks": 1000,
+  "generation_seed": 20261007,
+  "generator": {
+    "function": "open_apps.agentic_rl.tasks.generate_curriculum",
+    "max_subgoals": 3,
+    "script_sha256": "98e3d6d49fa1bd6ab2ddb6c864696653483f7cbeef9a3bc422aa6f42627591d0",
+    "source_sha256": "719b8c5dcae30ce486eca040ff60ccdfd35edbf2373de9e98ddc3e20061d6b5b"
+  },
+  "max_steps_by_generated_subgoal_count": {
+    "1": 30,
+    "2": 45,
+    "3": 60
+  },
+  "new_split_counts": {
+    "test": 100,
+    "train": 804,
+    "val": 96
+  },
+  "registry": {
+    "path": "metadata/tasks_v2_registry.jsonl",
+    "sha256": "4dc0fc3824cf3a243f2410a9e79ef5e528a637623d6c00c53362f89d9de8b82a"
+  },
+  "split_counts": {
+    "test": 100,
+    "train": 1052,
+    "val": 96
+  },
+  "split_policy": "Existing tasks pinned to train; new families use a stable 80/10/10 hash split.",
+  "split_seed": 17,
+  "split_subgoal_counts": {
+    "test": {
+      "1": 35,
+      "2": 38,
+      "3": 27
+    },
+    "train": {
+      "1": 394,
+      "2": 299,
+      "3": 335,
+      "4": 24
+    },
+    "val": {
+      "1": 33,
+      "2": 34,
+      "3": 29
+    }
+  },
+  "version": "v2"
+}

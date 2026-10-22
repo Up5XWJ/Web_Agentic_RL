@@ -1,0 +1,22 @@
+# @package _global_
+
+# Example values, please replace
+project: open_apps
+
+logs_dir:  /example/dir
+databases_dir: ${logs_dir}/databases
+
+cluster: slurm
+
+slurm_sweep_launcher:
+  gpus_per_node: 0
+  nodes: 1
+  tasks_per_node: 1
+  cpus_per_task: 2
+  timeout_min: 400
+  slurm_account: example_replace_me
+  slurm_qos: qos_example_replace_me
+  slurm_partition: partition_example_replace_me
+  mem_gb: 10
+  slurm_srun_args: ["-vv", "--cpu-bind", "none"]
+  slurm_comment: "parallel agent tasks"

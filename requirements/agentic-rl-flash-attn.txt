@@ -1,0 +1,5 @@
+# Install AFTER agentic-rl-gpu.txt on the CUDA host, with --no-build-isolation.
+# Select/build the wheel matching Python, CUDA, torch and its C++ ABI.
+# Keep the already locked dependencies unchanged during this second step.
+-c agentic-rl-gpu.txt
+flash-attn==2.8.1
